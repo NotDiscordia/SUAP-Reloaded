@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+<head>
+    <meta charset="UTF-8"/>
+    <title>Modificar Asignación</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #165f31, #2e7d46);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            position: relative;
+        }
+        .logo {
+            width: 100px;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+        h2 {
+            margin-bottom: 16px;
+        }
+        input, button {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            background: white;
+            color: #b67d2e;
+            border: 2px solid #b67d2e;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #b67d2e;
+            color: white;
+        }
+        .table-container {
+            margin-top: 20px;
+            border: 2px solid #b67d2e;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background: white;
+            color: #b67d2e;
+            border-bottom: 2px solid #b67d2e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Modificar Asignación <img class="logo" src="uabc.png" alt="UABC"/></h2>
+        
+        <h:form>
+            <label for="unidad">Unidad de Aprendizaje:</label>
+            <h:inputText id="unidad" value="#{bean.unidadBusqueda}" />
+            <h:commandButton value="Buscar" action="#{bean.buscarProfesores}" styleClass="btn" />
+        </h:form>
+
+        <div class="table-container">
+            <h3>Profesores Asignados</h3>
+            <h:dataTable value="#{bean.listaProfesores}" var="profesor">
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                    #{profesor.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Acción</f:facet>
+                    <h:commandButton value="Eliminar" action="#{bean.eliminarAsignacion(profesor.id)}" styleClass="btn" />
+                </h:column>
+            </h:dataTable>
+        </div>
+    </div>
+</body>
+</html>

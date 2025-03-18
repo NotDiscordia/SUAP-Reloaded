@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Consulta General de Profesores</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #165f31, #2e7d46);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+        }
+        h2 {
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 2px solid #b67d2e;
+        }
+        th {
+            background: white;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #b67d2e;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn:hover {
+            background: #99631e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Consulta General de Profesores</h2>
+        <h:form>
+            <h:dataTable value="#{profesorBean.profesores}" var="profesor" border="1">
+                <h:column>
+                    <f:facet name="header">Nombre</f:facet>
+                    #{profesor.nombre}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Unidades Asignadas</f:facet>
+                    <h:outputText value="#{profesor.unidades}" />
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </div>
+</body>
+</html>

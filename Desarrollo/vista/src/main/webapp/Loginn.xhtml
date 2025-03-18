@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #165f31, #2e7d46);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+        }
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 92%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background: #c4821a;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #a86d15;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="uabc.png" alt="UABC"/>
+        <form>
+            <label>Usuario:</label>
+            <input type="text" name="usuario" placeholder="Usuario" />
+            <label>Contraseña:</label>
+            <input type="password" name="contrasena" placeholder="Contraseña" />
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </div>
+</body>
+</html>
