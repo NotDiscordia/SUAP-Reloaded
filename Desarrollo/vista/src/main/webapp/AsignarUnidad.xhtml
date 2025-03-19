@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Asignar Unidad de Aprendizaje</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #165f31, #2e7d46);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 400px;
+        }
+
+        .logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        button {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 2px solid #c4821a;
+            background-color: white;
+            color: black;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #c4821a;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="resources/uabcl.png" alt="UABC"/>
+        <h2>Asignar Unidad de Aprendizaje</h2>
+
+        <form action="buscarProfesor.xhtml" method="post">
+        <input type="text" name="nombre_profesor" placeholder="Nombre del Profesor" required="required"/>
+            <button type="submit">Buscar</button>
+        </form>
+
+        <h3>Unidades Disponibles</h3>
+        <form action="asignarUnidadProcesar.xhtml" method="post">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Clave</th>
+                        <th>Nombre</th>
+                        <th>Seleccionar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se llenarán las unidades disponibles desde la base de datos -->
+                    <!-- Ejemplo de una fila estática, luego debe ser dinámica -->
+                    <tr>
+                        <td>101</td>
+                        <td>Matemáticas</td>
+                        <td><input type="radio" name="unidad" value="101"/></td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="submit">Confirmar Asignación</button>
+        </form>
+
+        <button onclick="window.location.href='MenuPrin.xhtml'">Regresar</button>
+    </div>
+</body>
+</html>
