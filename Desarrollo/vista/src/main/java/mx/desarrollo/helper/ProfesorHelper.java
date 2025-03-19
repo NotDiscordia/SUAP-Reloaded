@@ -8,6 +8,7 @@ package mx.desarrollo.helper;
 import java.io.Serializable;
 import java.util.List;
 import mx.desarrollo.entidad.Profesor;
+import mx.desarrollo.facade.FacadeProfesor;
 import mx.desarrollo.integracion.ServiceFacadeLocator;
 
 /**
@@ -38,10 +39,12 @@ public class ProfesorHelper implements Serializable {
      * @param id
      */
     public void eliminarProfesor(int id) {
-        ServiceFacadeLocator.getInstanceFacadeProfesor().eliminar(id);
+        FacadeProfesor facadeProfesor = new FacadeProfesor();
+        facadeProfesor.eliminar(id);
     }
     
     public List<Profesor> obtenerTodosLosProfesores() {
         return ServiceFacadeLocator.getInstanceFacadeProfesor().buscarTodos();
     }
+    
 }

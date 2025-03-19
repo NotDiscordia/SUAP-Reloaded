@@ -5,28 +5,25 @@
  */
 package mx.desarrollo.facade;
 
-import java.util.List;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import mx.desarrollo.delegate.DelegateProfesor;
 import mx.desarrollo.entidad.Profesor;
+import java.util.List;
 
-/**
- *
- * @author EduardoCardona <>
- */
 public class FacadeProfesor {
-    
-        private EntityManager em;
 
-        
+    @PersistenceContext
+    private EntityManager em;  // Inyección del EntityManager
+
     private final DelegateProfesor delegateProfesor;
 
     public FacadeProfesor() {
         this.delegateProfesor = new DelegateProfesor();
     }
-    
-    public void guardarProfesor(Profesor profesor){
+
+    public void guardarProfesor(Profesor profesor) {
         delegateProfesor.saveProfesor(profesor);
     }
 
@@ -43,6 +40,7 @@ public class FacadeProfesor {
     }
 
     public List<Profesor> buscarTodos() {
- TypedQuery<Profesor> query = em.createNamedQuery("Profesor.findAll", Profesor.class);
-        return query.getResultList();    }
+        TypedQuery<Profesor> query = em.createNamedQuery("Profesor.findAll", Profesor.class);
+        return query.getResultList();
+    }
 }

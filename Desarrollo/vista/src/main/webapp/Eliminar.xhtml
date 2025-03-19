@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" xmlns:h="http://java.sun.com/jsf/html">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -53,10 +53,18 @@
 <body>
     <div class="container">
         <img class="logo" src="resources/uabcl.png" alt="UABC"/>
-        <label for="numeroProfesor">Número profesor</label>
-        <input type="text" id="numeroProfesor" placeholder="Ingrese el número"/>
-        <button class="btn">Eliminar</button>
-        <button type="button" onclick="window.location.href='MenuPrin.xhtml'">Volver</button>
+        
+        <h:form>
+            <h:outputLabel for="numeroProfesor" value="Número de Profesor" />
+            <h:inputText id="numeroProfesor" value="#{profesorUI.profesorId}" 
+                         required="true" requiredMessage="El número es obligatorio"/>
+            
+            <h:commandButton value="Eliminar" action="#{profesorUI.eliminarProfesor}" 
+                             styleClass="btn" onclick="return confirm('¿Está seguro de eliminar este profesor?')"/>
+            
+            <h:commandButton value="Volver" action="MenuPrin" immediate="true" 
+                             styleClass="btn"/>
+        </h:form>
     </div>
 </body>
 </html>
