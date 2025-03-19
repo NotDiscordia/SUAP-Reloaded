@@ -6,7 +6,7 @@
 package mx.desarrollo.entidad;
 
 import java.io.Serializable;
-import java.util.Collection;
+import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author usuario
+ * @author lap
  */
 @Entity
 @Table(name = "profesor")
@@ -56,7 +56,7 @@ public class Profesor implements Serializable {
         @JoinColumn(name = "numProfesor", referencedColumnName = "numProfesor")}, inverseJoinColumns = {
         @JoinColumn(name = "claveUA", referencedColumnName = "claveUA")})
     @ManyToMany
-    private Collection<Unidadaprendizaje> unidadaprendizajeCollection;
+    private List<Unidadaprendizaje> unidadaprendizajeList;
 
     public Profesor() {
     }
@@ -105,12 +105,12 @@ public class Profesor implements Serializable {
     }
 
     @XmlTransient
-    public Collection<Unidadaprendizaje> getUnidadaprendizajeCollection() {
-        return unidadaprendizajeCollection;
+    public List<Unidadaprendizaje> getUnidadaprendizajeList() {
+        return unidadaprendizajeList;
     }
 
-    public void setUnidadaprendizajeCollection(Collection<Unidadaprendizaje> unidadaprendizajeCollection) {
-        this.unidadaprendizajeCollection = unidadaprendizajeCollection;
+    public void setUnidadaprendizajeList(List<Unidadaprendizaje> unidadaprendizajeList) {
+        this.unidadaprendizajeList = unidadaprendizajeList;
     }
 
     @Override
