@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Menú Principal</title>
+    <title>Alta Unidad de Aprendizaje</title>
     <style>
         body {
             background: linear-gradient(to right, #165f31, #2e7d46);
@@ -19,7 +19,7 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
             text-align: center;
-            width: 300px;
+            width: 320px;
         }
 
         .logo {
@@ -27,10 +27,19 @@
             margin-bottom: 20px;
         }
 
-        form button {
+        input {
+            width: calc(100% - 20px);
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        button {
             width: 100%;
             padding: 8px;
-            margin: 10px 0;
+            margin-top: 10px;
             border: 2px solid #c4821a;
             background-color: white;
             color: black;
@@ -40,7 +49,7 @@
             transition: 0.3s;
         }
 
-        form button:hover {
+        button:hover {
             background-color: #c4821a;
             color: white;
         }
@@ -49,12 +58,15 @@
 <body>
     <div class="container">
         <img class="logo" src="resources/uabcl.png" alt="UABC"/>
-        <form>
-            <button type="button" onclick="window.location.href='AltaProfesor.xhtml'">Alta Profesor</button>
-            <button type="button" onclick="window.location.href='AltaUnidad.xhtml'">Alta Unidad De Aprendizaje</button>
-            <button type="button" onclick="window.location.href='AsignarUnidad.xhtml'">Asignar unidad de aprendizaje</button>
-            <button type="button" onclick="window.location.href='MenuCon.xhtml'">Consultas</button>
-            <button type="button" onclick="window.location.href='login.xhtml'">Cerrar sesion</button>
+        <h2>Alta Unidad de Aprendizaje</h2>
+        <form action="procesarAltaUnidad.xhtml" method="post">
+            <input type="text" name="clave" placeholder="Clave" required="required"/>
+            <input type="text" name="nombre" placeholder="Nombre" required="required"/>
+            <input type="number" name="horas_clase" placeholder="Horas de Clase" min="0" required="required"/>
+            <input type="number" name="horas_laboratorio" placeholder="Horas de Laboratorio" min="0" required="required"/>
+            <input type="number" name="horas_taller" placeholder="Horas de Taller" min="0" required="required"/>
+            <button type="submit">Guardar</button>
+            <button type="button" onclick="window.location.href='MenuPrin.xhtml'">Volver</button>
         </form>
     </div>
 </body>
