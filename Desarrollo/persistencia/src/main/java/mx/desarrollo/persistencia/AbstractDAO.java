@@ -16,6 +16,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import mx.desarrollo.persistencia.InterfaceDAO;
 import java.util.List;
+import javax.persistence.EntityManager;
 //import mx.avanti.siract.dao.InterfaceDAO;
 import org.hibernate.SQLQuery;
 import org.hibernate.metadata.ClassMetadata;
@@ -33,6 +34,12 @@ public abstract class AbstractDAO<PK extends Serializable, T> implements Interfa
     //private Session session;
     //private Transaction tx;
     private Class<T> entityClass;
+    
+        private EntityManager em;
+    
+    protected EntityManager getEntityManager() {
+        return em;
+    }
 
     public Class<T> getEntityClass() {
         return entityClass;

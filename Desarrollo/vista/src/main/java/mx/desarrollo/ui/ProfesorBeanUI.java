@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mx.desarrollo.beanUI;
+package mx.desarrollo.UI;
 
 import java.io.Serializable;
 import java.util.List;
@@ -46,6 +46,25 @@ public class ProfesorBeanUI implements Serializable {
         }
     }
     
+    public void eliminarProfesor() {
+    try {
+        if (profesorId > 0) {
+            profesorHelper.eliminarProfesor(profesorId);
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_INFO, "Éxito", "Profesor eliminado correctamente."));
+            
+            // Actualizar la lista de profesores después de eliminar
+            profesores = profesorHelper.obtenerTodosLosProfesores();
+        } else {
+            FacesContext.getCurrentInstance().addMessage(null, 
+                new FacesMessage(FacesMessage.SEVERITY_WARN, "Aviso", "Ingrese un número de profesor válido."));
+        }
+    } catch (Exception e) {
+        FacesContext.getCurrentInstance().addMessage(null, 
+            new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error", "No se pudo eliminar el profesor."));
+        e.printStackTrace();
+    }
+}
     /* Getters y Setters */
     
     public Profesor getProfesor() {
