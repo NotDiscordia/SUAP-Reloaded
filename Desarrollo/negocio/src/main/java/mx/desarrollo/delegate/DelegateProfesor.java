@@ -21,5 +21,13 @@ public class DelegateProfesor {
     public void saveProfesor(Profesor profesor){
         ServiceLocator.getInstanceProfesorDAO().save(profesor);
     }
+
+    public Profesor findProfesorById(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void deleteProfesor(int id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
